@@ -37,3 +37,22 @@ def sq(num):
     return num*num
 val_sq1 = list(map(sq, val))
 print(val_sq1)
+
+print("--------     -----------  ----------  ----------  ---------   ---------   -----------")
+
+items3 = [(3456, "shoe", 350), (3566, "mobile", 890), (2878, "laptop", 430), (2689, "mac", 560)]
+lessthan_500 = lambda item : item[2]<500
+filtered = list(filter(lessthan_500, items3))
+print(filtered)
+filtered = list(filter(lambda item : item[1][0] =='m', items3))
+print(filtered)
+
+
+import functools
+value = [5,4.5,89,9,6,4]
+sum = functools.reduce(lambda x,y : x+y, value)
+print(sum)
+
+char = ['a','t','h','i']
+name = functools.reduce(lambda x,y : x+y, char)
+print(name)
