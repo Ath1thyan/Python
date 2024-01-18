@@ -56,3 +56,28 @@ print(sum)
 char = ['a','t','h','i']
 name = functools.reduce(lambda x,y : x+y, char)
 print(name)
+
+temp = [54, 78, 45, 89, 75, 25, 93, 68]
+temp_less_50 = [i for i in temp if i<50]
+print(temp_less_50)
+
+temp1 = [54, 78, 45, 89, 75, 25, 93, 68]
+temp_less = [i if i<50 else 0 for i in temp]
+print(temp_less)
+
+print("--------     -----------  ----------  ----------  ---------   ---------   -----------")
+
+cart = {"phone":25000.00 , "lamp":750.95 , "table":2500.63 , "pen":120.00 , "kettle":1000.35}
+cart_rounded = {k : round(values) for (k,values) in cart.items()}
+print(cart_rounded)
+
+print("--------     -----------  ----------  ----------  ---------   ---------   -----------")
+
+car = ['volvo' , 'bmw', 'benz', 'porsche']
+model = ['xc90', 'x7', 'amg', 'cayenne']
+zipped_list = list(zip(car,model))
+print(zipped_list)
+zipped_tuple = tuple(zip(car,model))
+print(zipped_tuple)
+zipped_set = set(zip(car,model))
+print(zipped_set)
