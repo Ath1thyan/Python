@@ -50,6 +50,15 @@ def math_sqrt():
    return {
       "result" : str(math.sqrt(int(request.form['num'])))
    }
+   
+@app.route('/hello123')
+def hello123():
+   d = {
+      "name" : whoami().strip(),
+      "env" : "Linux",
+      "avatar" : "https://avatars.githubusercontent.com/u/149868082?v=4"
+   }
+   return render_template('home.html', data = d)
 
 if __name__ == '__main__':
    app.run(debug=True)
