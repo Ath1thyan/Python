@@ -1,7 +1,13 @@
-from flask import Flask , redirect, url_for
+from flask import Flask , redirect, url_for, request, render_template
 import os
+import math
+import jinja2
 
 app = Flask(__name__)
+
+@app.route('/helloworld')
+def helloworld():
+   return render_template('helloworld.html')
 
 @app.route('/hello')
 def hello_world():
@@ -11,7 +17,7 @@ def hello_world():
 def index():
    return "Welcome"
 
-@app.route('/whoami')
+@app.route('/whoami', methods = ['GET', 'POST'])
 def whoami():
    return os.popen('whoami').read()
 
@@ -38,6 +44,12 @@ def error(errorcode):
       return "No such file or directory"
    else:
       return "unknown error"
+   
+@app.route('/math/sqrt')
+def math_sqrt():
+   return {
+      "result" : str(math.sqrt(int(request.form['num'])))
+   }
 
 if __name__ == '__main__':
    app.run(debug=True)
