@@ -3,15 +3,18 @@
 import sys
 import base64
 
-print("base 64 by Sudo labs")
+print("\nbase 64 by Sudo labs\n")
 
 # print(vars(base64))
 # print(sys.argv)
 # print(sys.base_prefix)
 # print(sys.api_version)
 
-if(len(sys.argv) != 3):
-    print("Usage: base64 {-e | -d}\"<string>\"\n")
+if(len(sys.argv) != 3 or sys.argv[1] == "-h" or sys.argv[1] == "--help"):
+    print("Usage: base64 {-e | -d} \"<string>\"\n")
+    print("-e Encode\n")
+    print("-d Decode\n")
+    print("-h Help menu\n")
     exit(-1)
 
 option = sys.argv[1]
