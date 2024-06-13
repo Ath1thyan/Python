@@ -1,3 +1,24 @@
 #! /Users/athis_mac/Developer/Labs/PlayGround/Python/bin/python
 
+import sys
+import base64
+
 print("base 64 by Sudo labs")
+
+# print(vars(base64))
+# print(sys.argv)
+# print(sys.base_prefix)
+# print(sys.api_version)
+
+if(len(sys.argv) != 3):
+    print("Usage: base64 {-e | -d}\"<string>\"\n")
+    exit(-1)
+
+option = sys.argv[1]
+data = sys.argv[2]
+
+if option == "-e" :
+    print(base64.b64encode(data.encode()).decode())
+
+elif option == "-d" :
+    print(base64.b64decode(data.encode()).decode())

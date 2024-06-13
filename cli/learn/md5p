@@ -1,7 +1,7 @@
 #! /opt/homebrew/bin/php
 
 <?php
-    // print("md5 utility by sudo labs");
+    print("md5 utility by sudo labs");
     // print_r($argv);
 
     if (count($argv) != 2) {
