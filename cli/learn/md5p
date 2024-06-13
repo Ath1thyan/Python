@@ -1,0 +1,12 @@
+#! /opt/homebrew/bin/php
+
+<?php
+    // print("md5 utility by sudo labs");
+    // print_r($argv);
+
+    if (count($argv) != 2) {
+        die("Usage: md5 \"<string>\"\n");
+    }
+
+    print(md5($argv[1]));
+    print("\n");
