@@ -1,6 +1,11 @@
 #! /Users/athis_mac/Developer/Labs/PlayGround/Python/bin/python
 
 from optparse import OptionParser
+import os
+import sys
+
+sys.stderr.write("An error\n")
+
 parser = OptionParser()
 parser.add_option("-f", "--file", dest="filename",
                   help="write report to FILE", metavar="FILE")
@@ -10,3 +15,7 @@ parser.add_option("-q", "--quiet",
 
 (options, args) = parser.parse_args()
 print(options, args)
+if (not options.ensure_value('filename', "")):
+    filename = input("Enter a filename to cat: ")
+    os.system('cat '+filename)
+os.system('cat ' +options.ensure_value('filename', 'optparse'))

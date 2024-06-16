@@ -1,0 +1,40 @@
+#! /Users/athis_mac/Developer/Labs/PlayGround/Python/bin/python
+
+from optparse import OptionParser
+import psutil
+
+parser = OptionParser()
+
+parser.add_option("-n", "--cpucount",
+                  action="store_true", dest="cpucount", default=True,
+                  help="prints number of cpu cores")
+parser.add_option("-c", "--cpu",
+                  action="store_true", dest="cpu", default=True,
+                  help="prints cpu percentage")
+parser.add_option("-l", "--load",
+                  action="store_true", dest="loadavg", default=True,
+                  help="prints the load average")
+parser.add_option("-s", "--stream",
+                  action="store_true", dest="stream", default=True,
+                  help="continuously stream the values")
+
+(options, args) = parser.parse_args()
+
+try:
+    if options.ensure_value('cpucount', False) == True:
+        print(psutil.cpu_count(), "core")
+    if options.ensure_value('cpu', False):
+        if options.ensure_value('stream', False) == True:
+            while True:
+                print("\r", psutil.cpu_percent(1), "%", end="")
+        else:
+            print(psutil.cpu_percent(1), "%")
+    if options.ensure_value('loadavg', False) == True:
+        if options.ensure_value('stream', False) == True:
+            while True:
+                print("\r", psutil.getloadavg(), "%", end="")
+        else:
+            print(psutil.getloadavg(), "%")
+
+except KeyboardInterrupt:
+    pass
